@@ -1,0 +1,141 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegación San José 2025-2028</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e1f7;
+            color: #5d2177;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #d63384;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .section {
+            padding: 20px;
+            border-bottom: 2px solid #d63384;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button {
+            background-color: #5d2177;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Delegación San José 2025-2028</div>
+    
+    <div class="section">
+        <div class="title">Misión</div>
+        <p>Nuestra meta es Mantener el orden y la seguridad de habitantes.</p>
+    </div>
+    
+    <div class="section">
+        <div class="title">Visión</div>
+        <p>Ser una colonia que busca un desarrollo sustentable y equilibrado.</p>
+    </div>
+    
+    <div class="section">
+        <div class="title">Solicitar Constancia</div>
+        <label>Día y Hora:</label>
+        <input type="datetime-local">
+        <label>Recoger en:</label>
+        <select>
+            <option>Primera Delegada Maestra Dolores Nambo</option>
+            <option>Segundo Delegado Fisico Alberto Duran</option>
+            <option>Tercer Delegado Licenciado Jonathan Pedraza</option>
+            <option>Cuarta Delegada Licencia Guadalupe Jimenez</option>
+            <option>Quinta Delegada Ingeniera Diana Yordeth Bernal</option>
+        </select>
+        <label>Subir Foto de Credencial de Elector:</label>
+        <input type="file" id="credencial" accept="image/*">
+        <button onclick="verFoto('credencial')">Ver Foto</button>
+        <img id="imgCredencial" class="hidden" width="200">
+    </div>
+    
+    <div class="section">
+        <div class="title">Transferencia Bancaria</div>
+        <label>Subir Foto del Comprobante:</label>
+        <input type="file" id="comprobante" accept="image/*">
+        <button onclick="verFoto('comprobante')">Ver Foto del Comprobante</button>
+        <img id="imgComprobante" class="hidden" width="200">
+    </div>
+    
+    <div class="section">
+        <div class="title">Camión de la Basura</div>
+        <label>Horario y Días de la Semana:</label>
+        <input type="text" placeholder="Ejemplo: Lunes y Jueves 7:00 AM">
+        <label>Calles por donde pasa:</label>
+        <input type="text">
+    </div>
+    
+    <div class="section">
+        <div class="title">Perfiles</div>
+        <ul>
+            <li>Primera Delegada Maestra Dolores Nambo <input type="file"> <button>Ver Foto</button></li>
+            <li>Segundo Delegado Fisico Alberto Duran <input type="file"> <button>Ver Foto</button></li>
+            <li>Tercer Delegado Licenciado Jonathan Pedraza <input type="file"> <button>Ver Foto</button></li>
+            <li>Cuarta Delegada Licencia Guadalupe Jimenez <input type="file"> <button>Ver Foto</button></li>
+            <li>Quinta Delegada Ingeniera Diana Yordeth Bernal <input type="file"> <button>Ver Foto</button></li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <div class="title">Observaciones</div>
+        <textarea rows="4"></textarea>
+    </div>
+    
+    <div class="section">
+        <div class="title">Directorio Telefónico</div>
+        <ul>
+            <li><b>Policía Municipal:</b> 714-103-09-01</li>
+            <li><b>Cruz Roja:</b> 714-142-05-20</li>
+            <li><b>Protección Civil:</b> 714-103-08-77</li>
+            <li><b>Policía Estatal:</b> 714-142-04-78</li>
+        </ul>
+    </div>
+    
+    <script>
+        function verFoto(id) {
+            const input = document.getElementById(id);
+            const img = document.getElementById('img' + id.charAt(0).toUpperCase() + id.slice(1));
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                    img.classList.toggle('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
+
+    
